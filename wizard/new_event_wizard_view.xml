@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="task_new_event_wizard_view" model="ir.ui.view">
+            <field name="name">task_new_event_wizard_view</field>
+            <field name="model">project.task.new.event.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="New Event">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="partner_ids" widget="many2manyattendee" placeholder="Select attendees..." context="{'force_email':True}" on_change="onchange_partner_ids(partner_ids)" class="oe_inline"/>
+                        </group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="duration" />
+                        </group>
+                    </group>
+                    <div style="text-align:left">
+                        <button name="create_event" string="Create" type="object" class="btn btn-primary" />
+                        <button icon="gtk-cancel" special="cancel" string="Cancel" />
+                    </div>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

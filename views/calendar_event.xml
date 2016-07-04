@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+        <record model="ir.ui.view" id="calendar_event_with_task_view">
+            <field name="name">calendar.event.with.task.view</field>
+            <field name="model">calendar.event</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_form" />
+            <field name="arch" type="xml">
+                <xpath expr="(//field[@name='categ_ids'])" position="before">
+                    <field name='associated_task' />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
