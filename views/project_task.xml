@@ -7,15 +7,16 @@
             <field name="inherit_id" ref="project.view_task_form2" />
             <field name="arch" type="xml">
                 <xpath expr="(//field[@name='tag_ids'])" position="after">
-                    <group>
-                        <label string="Linked Event" />
-                        <button name="open_create_event_wizard" string="Create Event" attrs="{'invisible':[('associated_event', '!=', False)]}" type="object" class="btn btn-primary"/>
-                        <button name="delete_event" string="Delete Event" attrs="{'invisible':[('associated_event', '=', False)]}" type="object" class="btn btn-primary"/>
-                    </group>
+                    <button name="quick_create_event" string="Quick Event" attrs="{'invisible':[('associated_event', '!=', False)]}" type="object" class="btn btn-primary oe_inline"/>
+                    <button name="open_create_event_wizard" string="Create Event" attrs="{'invisible':[('associated_event', '!=', False)]}" type="object" class="btn btn-primary oe_inline"/>
+
                     <field name='associated_event' attrs="{'invisible':[('associated_event', '=', False)]}" />
                     <field name='associated_event_start_date' attrs="{'invisible':[('associated_event', '=', False)]}" />
                     <field name='associated_event_duration' attrs="{'invisible':[('associated_event', '=', False)]}" />
-                    <field name="associated_event_partner_ids" attrs="{'invisible':[('associated_event', '=', False)]}" widget="many2manyattendee"/>
+                    <!--<field name="associated_event_partner_ids" attrs="{'invisible':[('associated_event', '=', False)]}" widget="many2manyattendee"/>-->
+
+                    <button name="open_event" string="Open Event" attrs="{'invisible':[('associated_event', '=', False)]}" type="object" class="btn btn-primary oe_inline"/>
+                    <button name="delete_event" string="Delete Event" icon="gtk-cancel" attrs="{'invisible':[('associated_event', '=', False)]}" type="object" class="oe_inline"/>
                 </xpath>
             </field>
         </record>

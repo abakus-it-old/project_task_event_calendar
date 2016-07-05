@@ -7,8 +7,3 @@ class calendar_event(models.Model):
 
     associated_task = fields.Many2one('project.task', string="Associated Task", index=True)
 
-    #@api.onchange('associated_task')
-    #def compute_task_info(self):
-    #    if self.associated_task:
-    #        self.associated_task.write({'associated_event': self.id})
-
